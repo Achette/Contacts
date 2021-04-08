@@ -6,7 +6,7 @@
 typedef struct
 {
     char name[60];
-    long int number;
+    long number;
 
 } Contacts;
 
@@ -43,49 +43,49 @@ int main()
         {
         case 1:
         {
-            system("CLS");
+            system("clear");
             printf("Contact Name: ");
             scanf("%[^\n]", contact[nContact].name);
 
             printf("Phone number: ");
-            scanf("%d", &contact[nContact].number);
+            scanf("%ld", &contact[nContact].number);
             getchar();
             nContact++;
             break;
         }
         case 2:
         {
-            system("CLS");
+            system("clear");
             for(int j = 0; j < nContact; j++)
             {
                 printf("Name: %s\n", contact[j].name);
-                printf("Number: %d\n", contact[j].number);
+                printf("Number: %ld\n", contact[j].number);
                 printf("---------------------------------\n");
             }
             break;
         }
         case 3:
         {
-            system("CLS");
-            printf("Choose a contact position to edit [0 - %d]: ", nContact);
+            system("clear");
+            printf("Choose a contact position to edit [0 - %d]: ", nContact - 1);
             scanf("%d", &code);
             getchar();
             printf("Name: %s\n", contact[code].name);
             printf("NEW NAME: ");
             scanf("%[^\n]", contact[code].name);
-            printf("Phone: %d\n", contact[code].number);
+            printf("Phone: %ld\n", contact[code].number);
             printf("NEW NUMBER: ");
-            scanf("%d", &contact[code].number);
+            scanf("%ld", &contact[code].number);
             break;
         }
         case 4:
         {
-            system("CLS");
+            system("clear");
             printf("Contacts closed!");
             break;
         }
         default:
-            system("CLS");
+            system("clear");
             printf("\nInvalid option!");
             break;
         }
