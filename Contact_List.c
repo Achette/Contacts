@@ -5,10 +5,10 @@
 
 typedef struct
 {
-    char nome[60];
-    long int numero;
+    char name[60];
+    long int number;
 
-} Agenda;
+} Contacts;
 
 
 
@@ -16,50 +16,50 @@ int main()
 {
     setlocale(LC_ALL,"");
 
-    int NContato, codigo;
+    int nContact, code;
 
-    NContato = 0;
-    Agenda agenda[10];
+    nContact = 0;
+    Contacts contact[10];
 
-    int opcao;
+    int option;
 
 
     do
     {
 
-        printf("\n\n      AGENDA TELEFÔNICA\n\n");
-        printf("1 - Adicionar um contato\n");
-        printf("2 - Visualizar todos os contatos\n");
-        printf("3 - Alterar nome ou número do contato\n");
-        printf("4 - Sair\n");
+        printf("\n\n   TELEPHONE BOOK\n\n");
+        printf("1 - Add a new contact\n");
+        printf("2 - View all contacts\n");
+        printf("3 - Edit contact\n");
+        printf("4 - Exit\n");
 
 
-        printf("\n\nDigite a opção desejada: ");
-        scanf("%d", &opcao);
+        printf("\n\nChoose an option: ");
+        scanf("%d", &option);
 
         getchar();
 
-        switch(opcao)
+        switch(option)
         {
         case 1:
         {
             system("CLS");
-            printf("Nome do contato: ");
-            scanf("%[^\n]", agenda[NContato].nome);
+            printf("Contact Name: ");
+            scanf("%[^\n]", contact[nContact].name);
 
-            printf("Número do telefone: ");
-            scanf("%d", &agenda[NContato].numero);
+            printf("Phone number: ");
+            scanf("%d", &contact[nContact].number);
             getchar();
-            NContato++;
+            nContact++;
             break;
         }
         case 2:
         {
             system("CLS");
-            for(int j = 0; j < NContato; j++)
+            for(int j = 0; j < nContact; j++)
             {
-                printf("Nome: %s\n", agenda[j].nome);
-                printf("Número: %d\n", agenda[j].numero);
+                printf("Name: %s\n", contact[j].name);
+                printf("Number: %d\n", contact[j].number);
                 printf("---------------------------------\n");
             }
             break;
@@ -67,29 +67,29 @@ int main()
         case 3:
         {
             system("CLS");
-            printf("Digite a posição do contato que deseja alterar[0 - %d]: ", NContato);
-            scanf("%d", &codigo);
+            printf("Choose a contact position to edit [0 - %d]: ", nContact);
+            scanf("%d", &code);
             getchar();
-            printf("Nome: %s\n", agenda[codigo].nome);
-            printf("DIGITE NOVO NOME: ");
-            scanf("%[^\n]", agenda[codigo].nome);
-            printf("Telefone: %d\n", agenda[codigo].numero);
-            printf("DIGITE NOVO NÚMERO DE TELEFONE: ");
-            scanf("%d", &agenda[codigo].numero);
+            printf("Name: %s\n", contact[code].name);
+            printf("NEW NAME: ");
+            scanf("%[^\n]", contact[code].name);
+            printf("Phone: %d\n", contact[code].number);
+            printf("NEW NUMBER: ");
+            scanf("%d", &contact[code].number);
             break;
         }
         case 4:
         {
             system("CLS");
-            printf("Você saiu da agenda!");
+            printf("Contacts closed!");
             break;
         }
         default:
             system("CLS");
-            printf("\nOpção Inválida!");
+            printf("\nInvalid option!");
             break;
         }
 
-    }while(opcao != 4);
+    }while(option != 4);
 }
 
